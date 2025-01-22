@@ -6,4 +6,5 @@ public interface PrestamoRepo extends JpaRepository<Prestamo, Integer> {
 
 
 
+
 }
