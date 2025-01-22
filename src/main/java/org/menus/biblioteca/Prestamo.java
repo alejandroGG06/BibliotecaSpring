@@ -29,6 +29,7 @@ public class Prestamo {
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "ejemplar_id", nullable = false)
+    @JsonIgnore
     private Ejemplar ejemplar;
 
     @NotNull

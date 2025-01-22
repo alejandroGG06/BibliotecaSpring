@@ -1,5 +1,6 @@
 package org.menus.biblioteca;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -66,7 +67,7 @@ public class Libro {
                 ", ejemplars=" + ejemplars +
                 '}';
     }
-
+    @JsonManagedReference
     public void setEjemplars(Set<Ejemplar> ejemplars) {
         this.ejemplars = ejemplars;
 
