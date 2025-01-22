@@ -61,6 +61,12 @@ public class Usercontroll {
         return ResponseEntity.created(null).body(usuario);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Usuario> updateUsuario(@PathVariable int id, @RequestBody Usuario usuario) {
+        Usuario user= usuarioRepo.save(usuario);
+        return ResponseEntity.ok().body(user);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deluser(@PathVariable int id) {
         usuarioRepo.deleteById(id);

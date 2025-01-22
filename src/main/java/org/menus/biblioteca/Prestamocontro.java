@@ -26,9 +26,17 @@ public class Prestamocontro {
     }
     @PostMapping(value = "/addpres", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Prestamo> addprestamo(@RequestBody Prestamo prestamo) {
-        this.prestamoRepo.save(prestamo);
-        return ResponseEntity.created(null).body(prestamo);
+        Prestamo prestamo1=this.prestamoRepo.save(prestamo);
+        return ResponseEntity.created(null).body(prestamo1);
     }
+
+    @PostMapping("/{id}")
+    public ResponseEntity<Prestamo>updatePrestamo(@PathVariable int id, @RequestBody Prestamo prestamo) {
+        Prestamo prestamo1=this.prestamoRepo.save(prestamo);
+        return ResponseEntity.ok().body(prestamo1);
+    }
+
+
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deluser(@PathVariable int id) {
         prestamoRepo.deleteById(id);

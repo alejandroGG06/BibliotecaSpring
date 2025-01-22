@@ -111,6 +111,7 @@ public class Usuario {
     public Set<Prestamo> getPrestamos() {
         return prestamos;
     }
+
     @JsonManagedReference
     public void setPrestamos(Set<Prestamo> prestamos) {
         this.prestamos = prestamos;
