@@ -61,6 +61,12 @@ public class Usercontroll {
         return ResponseEntity.created(null).body(usuario);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deluser(@PathVariable int id) {
+        usuarioRepo.deleteById(id);
+        String mensaje = "Usuario eliminado con exito";
+        return ResponseEntity.ok().body(mensaje);
+    }
 
 
 
