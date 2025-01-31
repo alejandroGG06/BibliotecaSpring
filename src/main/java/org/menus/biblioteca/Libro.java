@@ -2,6 +2,7 @@ package org.menus.biblioteca;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 
@@ -14,16 +15,22 @@ public class Libro {
     @Id
     @Size(max = 20)
     @Column(name = "isbn", nullable = false, length = 20)
+    @Pattern(regexp = "^(978)\\d{9}\\d$")
+
     private String isbn;
 
     @Size(max = 200)
     @NotNull
     @Column(name = "titulo", nullable = false, length = 200)
+    @Pattern(regexp = "^[a-zA-Z0-9 ]*$")
+
     private String titulo;
 
     @Size(max = 100)
     @NotNull
     @Column(name = "autor", nullable = false, length = 100)
+    @Pattern(regexp = "^[a-zA-Z0-9 ]*$")
+
     private String autor;
 
     @OneToMany(mappedBy = "isbn")
@@ -55,16 +62,6 @@ public class Libro {
 
     public Set<Ejemplar> getEjemplars() {
         return ejemplars;
-    }
-
-    @Override
-    public String toString() {
-        return "Libro{" +
-                "isbn='" + isbn + '\'' +
-                ", titulo='" + titulo + '\'' +
-                ", autor='" + autor + '\'' +
-                ", ejemplars=" + ejemplars +
-                '}';
     }
 
     public void setEjemplars(Set<Ejemplar> ejemplars) {
