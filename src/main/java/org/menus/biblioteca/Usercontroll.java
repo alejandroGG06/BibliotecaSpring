@@ -60,7 +60,18 @@ public class Usercontroll {
         this.usuarioRepo.save(usuario);
         return ResponseEntity.created(null).body(usuario);
     }
-
+    @PutMapping("/{id}")
+    public ResponseEntity<Usuario> updateUsuario(@RequestBody Usuario usuario, @PathVariable Integer id) {
+        Usuario usuarioPersistido = usuarioRepo.save(usuario);
+        return ResponseEntity.ok().body(usuarioPersistido);
+    }
+    //DELETE
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteUsuario(@PathVariable Integer id) {
+        usuarioRepo.deleteById(id);
+        String mensaje = "Usuario borrado";
+        return ResponseEntity.ok().body(mensaje);
+    }
 
 
 
