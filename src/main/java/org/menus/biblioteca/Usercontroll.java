@@ -55,13 +55,13 @@ public class Usercontroll {
 //    }
 
     @PostMapping(value = "/usuarioForm2", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Usuario>addUsuario( @RequestBody Usuario usuario  ) {
+    public ResponseEntity<Usuario>addUsuario(@Valid @RequestBody Usuario usuario  ) {
 
         this.usuarioRepo.save(usuario);
         return ResponseEntity.created(null).body(usuario);
     }
     @PutMapping("/{id}")
-    public ResponseEntity<Usuario> updateUsuario(@RequestBody Usuario usuario, @PathVariable Integer id) {
+    public ResponseEntity<Usuario> updateUsuario(@Valid @RequestBody Usuario usuario, @PathVariable Integer id) {
         Usuario usuarioPersistido = usuarioRepo.save(usuario);
         return ResponseEntity.ok().body(usuarioPersistido);
     }
