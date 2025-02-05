@@ -27,7 +27,7 @@ public class Prestamocontroll {
         System.out.println(prestamo);
         return ResponseEntity.ok(prestamo);
     }
-    @PostMapping(value = "/addpres", consumes = MediaType.APPLICATION_JSON_VALUE)
+        @PostMapping(value = "/addpres", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Prestamo> addprestamo(@Valid @RequestBody Prestamo prestamo) {
         Prestamo prestamo1=this.prestamoRepo.save(prestamo);
         return ResponseEntity.created(null).body(prestamo1);

@@ -86,7 +86,7 @@ public class LibroControll {
     //DELETE
     @DeleteMapping("/{isbn}")
     public ResponseEntity<String> deleteLibro(@PathVariable String isbn) {
-        librosRepositorio.deleteById(Integer.valueOf(isbn));
+        librosRepositorio.deleteById(isbn);
         String mensaje = "libro con isbn: " + isbn + " borrado";
         return ResponseEntity.ok().body(mensaje);
     }

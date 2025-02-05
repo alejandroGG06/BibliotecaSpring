@@ -14,12 +14,13 @@ import java.util.List;
 @RequestMapping("/ejemplares")
 
 class EjemplarControll {
-
-
-        public EjemplarControll() {}
-
     ejemplarRepo repo;
     LibroRepo librosRepositorio;
+
+
+    public EjemplarControll() {}
+
+
         @Autowired
         public EjemplarControll(ejemplarRepo repo, LibroRepo repositorio2) {
             this.repo = repo;
@@ -61,7 +62,7 @@ class EjemplarControll {
             ejemplar.setId(id);
             ejemplar.setEstado(estado);
 
-            Libro libro = (Libro) librosRepositorio.findById(isbn);
+            Libro libro =librosRepositorio.findById(isbn).orElse(null);
 
             ejemplar.setIsbn(libro);
 

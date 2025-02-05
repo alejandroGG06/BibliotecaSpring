@@ -6,6 +6,5 @@ import java.util.List;
 
 //@author AlejandroGpublic
 
-public interface LibroRepo extends JpaRepository<Libro, Integer> {
-    List<Libro> findById(String isbn);
+public interface LibroRepo extends JpaRepository<Libro,String> {
 }
